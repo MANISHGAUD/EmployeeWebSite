@@ -1,0 +1,144 @@
+﻿@*@model EmployeeWebSite.Models.Employee;
+<html>
+    <head>
+        <h1>DigitalSignature</h1>
+
+    
+    <script>
+        document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+        function handleFileSelect(event) {
+            const fileInput = event.target;
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const img = new Image();
+                    img.onload = function () {
+                        const canvas = document.getElementById('canvas');
+                        const context = canvas.getContext('2d');
+                        context.clearRect(0, 0, canvas.width, canvas.height);
+                        context.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    };
+                    img.src = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+    </head>
+<body>
+
+
+    <input type="file" id="fileInput" accept="image/*" />
+    <canvas id="canvas" width="400" height="300" style="border:1px solid #000;"></canvas>
+
+   @* <div class="register">
+        <div class="col-lg-12">
+            <div class="lgndv1">
+                <div class="dvcls">
+                    <h1 class="heding1">Digital Signature</h1>
+                </div>
+                <div class="vrfydv frm">
+                    <div class="dsfxjstycntr" style="margin:10px 0px 20px 0px">
+                        <div class="input_text2">
+                            <input type="radio" id="option1" name="radioGroup" value="template">
+                            <label for="option1">Template Sign</label>
+                        </div>
+                        <div class="input_text2">
+                            <input type="radio" id="option2" name="radioGroup" value="coordinate">
+                            <label for="option2">Co-Ordinate Sign</label>
+                        </div>
+                    </div>
+                    <div class="dsfxjstycntr col-lg-4 Chs_file">
+                        <label for="slctFile" class="col-lg-3">Select File</label>
+                        <input type="file" id="fileInput" accept=".pdf">
+                    </div>
+                </div>
+
+                <div class="flx_strt">
+                    <div>
+                        <div class="jusfycntCenter">
+                            <button id="prev-page" class="btn-primary"> < </button>
+                            <canvas id="viewport1" class="viewport1C" width="285" height="368" style="border: 1px solid black ;background-color:#fff"></canvas>
+                            <button id="next-page" class="btn-primary"> > </button>
+                        </div>
+                        <div id="page-number"></div>
+
+                        <div class="coOrdinate">
+                             <p>Selected area: <span id="coordinates"></span></p>
+                          
+                        </div>
+                    </div>
+                    <div>
+                        <div class="dsfxcol alignCntr" style="align-items: center;">
+
+                            <button type="submit" class="UpLoadBtn sub_btn btn btn-primary ersBtn" value="submit" onclick="Submitcoordinate()" style="">
+
+                                <div class="upload-btn-container">
+
+                                    <svg class="upload-box" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 17" version="1.1" xml:space="preserve" style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41">
+                                    <path id="upload-box" d="M26 3.82l3.16 1.18 -13.16 4.91 -13.16-4.91 3.16-1.18 0-3.07 -6 2.25 0 8 16 6 16-6 0-8 -6-2.25 0 3.07Z" fill="#63c6ee" />
+                                   </svg>
+
+                                    <svg class="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="32" viewBox="0 0 16 16" version="1.1" xml:space="preserve" style="clip-rule:evenodd;fill-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41">
+                                    <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="#63c6ee" />
+                                </svg>
+                                </div>
+                                Upload
+                            </button>
+                            <div>
+                                <button id="undo-button" class="btn btn-secondary" style="display:none">Undo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div id="CordinatesContainer" class="CoOrdinates1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File to Canvas Example</title>
+</head>
+<body>
+    <input type="file" id="fileInput" accept="image/*" />
+    <canvas id="canvas" width="400" height="300" style="border:1px solid #000;"></canvas>
+
+    <script>
+        document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
+        function handleFileSelect(event) {
+            const fileInput = event.target;
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    const img = new Image();
+                    img.onload = function () {
+                        const canvas = document.getElementById('canvas');
+                        const context = canvas.getContext('2d');
+                        context.clearRect(0, 0, canvas.width, canvas.height);
+                        context.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    };
+                    img.src = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
